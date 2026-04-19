@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#2f4a2a" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no,date=no,address=no,email=no" />
+<meta name="description" content="Come visit Ireland with Bobby &mdash; 9&ndash;14 May 2027. Golf at Portmarnock, Waterville and Ballybunion, with the Ring of Kerry in between." />
 <title>Ireland 2027 &mdash; Bobby's Trip</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,11 +71,16 @@
   /* HERO */
   .hero{
     position:relative;min-height:92vh;display:flex;align-items:center;
-    color:#fff;overflow:hidden;
-    background:
-      linear-gradient(180deg,rgba(42,31,20,.3) 0%,rgba(42,31,20,.75) 100%),
-      url('Pictures/RingofKerryHome.jpeg') center/cover no-repeat,
-      linear-gradient(135deg,#2f4a2a,#1a1008);
+    color:#fff;overflow:hidden;isolation:isolate;
+    background:linear-gradient(135deg,#2f4a2a,#1a1008);
+  }
+  .hero .bg-video{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+    background:url('Pictures/Titlevideo-poster.jpg') center/cover no-repeat;
+  }
+  .hero .bg-overlay{
+    position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(42,31,20,.3) 0%,rgba(42,31,20,.75) 100%);
   }
   .hero .container{padding-top:80px;padding-bottom:80px;position:relative;z-index:2}
   .hero .eyebrow{color:#f5d68a;font-size:.82rem}
@@ -224,6 +234,72 @@
     background:repeating-linear-gradient(45deg,#f0ead6,#f0ead6 8px,#ece4cd 8px,#ece4cd 16px);
   }
   .ph.loaded::after{display:none}
+
+  /* ---- MOBILE TUNING ---- */
+  @media (max-width:640px){
+    body{font-size:16px;line-height:1.6}
+    .container{padding:0 20px}
+    section{padding:56px 0}
+
+    nav.top .inner{padding:12px 18px}
+    nav.top .brand{font-size:1rem}
+
+    .hero{min-height:88vh}
+    .hero .container{padding-top:64px;padding-bottom:72px}
+    .hero .eyebrow{font-size:.72rem;letter-spacing:.22em}
+    .hero h1{font-size:clamp(2.4rem,12vw,3.4rem);line-height:1.05}
+    .hero p.lede{font-size:1.1rem;line-height:1.5}
+    .hero .dates{font-size:.7rem;letter-spacing:.14em;padding:10px 16px;flex-wrap:wrap;justify-content:center;text-align:center}
+
+    .scroll-cue{bottom:18px;font-size:.62rem;letter-spacing:.26em}
+    .scroll-cue .chev{width:14px;height:14px}
+
+    h2{font-size:1.7rem;line-height:1.2}
+    h3{font-size:1.15rem}
+
+    .day{padding:28px 0;gap:10px}
+    .day .tag{font-size:1.6rem}
+    .day .tag em{font-size:.62rem;letter-spacing:.18em}
+    .day .tag small{font-size:.72rem;letter-spacing:.12em}
+    .day .date{font-size:.7rem;letter-spacing:.16em}
+
+    .schedule li{grid-template-columns:1fr;gap:4px;padding:12px 14px;font-size:.92rem}
+    .schedule li .t{font-size:.68rem;letter-spacing:.12em}
+
+    .figures{grid-template-columns:repeat(2,1fr)!important;gap:8px}
+
+    .courses{gap:18px}
+    .course .body{padding:18px}
+
+    .stays{gap:14px}
+    .stay{padding:18px}
+
+    .word-from-bobby{padding:28px 22px}
+    .word-from-bobby p{font-size:1.1rem;line-height:1.5}
+    .word-from-bobby::before{font-size:4rem;top:-10px;left:18px}
+
+    .gallery{gap:8px}
+
+    footer{padding:44px 0}
+    footer p{font-size:1.05rem}
+  }
+
+  @media (max-width:400px){
+    .hero h1{font-size:2.2rem}
+    .hero p.lede{font-size:1rem}
+    .figures{grid-template-columns:1fr!important}
+  }
+
+  @media (hover:none){
+    a:hover{color:inherit}
+    .scroll-cue:hover{opacity:.9}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .hero .bg-video{display:none}
+    .hero{background:linear-gradient(180deg,rgba(42,31,20,.3) 0%,rgba(42,31,20,.75) 100%),url('Pictures/Titlevideo-poster.jpg') center/cover no-repeat,linear-gradient(135deg,#2f4a2a,#1a1008)}
+    .scroll-cue .chev{animation:none}
+  }
 </style>
 </head>
 <body>
@@ -242,6 +318,11 @@
 
 <!-- HERO -->
 <header class="hero">
+  <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="Pictures/Titlevideo-poster.jpg">
+    <source src="Pictures/Titlevideo.webm" type="video/webm" />
+    <source src="Pictures/Titlevideo.mp4" type="video/mp4" />
+  </video>
+  <div class="bg-overlay"></div>
   <div class="postmark">
     <div class="sm">Ireland</div>
     <div class="big">May 9&ndash;14</div>
@@ -249,8 +330,8 @@
   </div>
   <div class="container">
     <div class="eyebrow">Come visit Ireland &mdash; the way I like to spend my time at home</div>
-    <h1>Ireland.<br/><em>My way.</em></h1>
-    <p class="lede">We will meet in Dublin starting at The Guinness Storehouse (must see) and an evening in Dublin before beginning our golfing journey at Portmarnock Golf Club. We will then spend the rest of the week seeing Kerry and enjoying my favourite courses in my favourite part of Ireland.</p>
+    <h1>Ireland.<br/><em>With Bobby.</em></h1>
+    <p class="lede">The Guinness Storehouse in Dublin marks the start of our trip ahead of an evening in Dublin before beginning our golfing journey at Portmarnock Golf Club. We will then spend the rest of the week seeing Kerry and enjoying my favourite courses in my favourite part of Ireland.</p>
     <div class="dates">9 &ndash; 14 May 2027 &nbsp;&middot;&nbsp; Dublin &rarr; Kerry</div>
   </div>
   <a href="#itinerary" class="scroll-cue" aria-label="Scroll down">
@@ -296,7 +377,7 @@
       </div>
       <div>
         <h3>Opening round at Portmarnock, then west to Sneem</h3>
-        <p>An early tee at <b>Portmarnock</b> &mdash; one of the great old links, a few miles up the coast from Dublin. Lunch at the club, then the bus points south-west for the long, scenic haul to Kerry. We land in the tidy little village of <b>Sneem</b> and get our first proper country dinner at <b>Matt the Threshers</b>.</p>
+        <p>An early tee at <b>Portmarnock</b> &mdash; one of the great old links, a few miles up the coast from Dublin. Lunch at the club, then the bus points south-west for the long, scenic haul to Kerry. We will get to the village of <b>Sneem</b> late so we will stop along the way for dinner at <b>Matt the Threshers</b>, a nice country Irish restaurant. This was a popular spot where I would stop with my family when I was growing up.</p>
         <ul class="schedule">
           <li><span class="t">10:40am</span><span class="w">Tee time &middot; <b>Portmarnock Golf Club</b></span></li>
           <li><span class="t">Afternoon</span><span class="w">Bus drive to <b>Sneem, Co. Kerry</b></span></li>
@@ -318,8 +399,8 @@
         <div class="date">Tue &middot; 11 May</div>
       </div>
       <div>
-        <h3>Waterville, Riney's, and a proper dinner at Sacre Coeur</h3>
-        <p>A midday round at <b>Waterville Golf Links</b> &mdash; Payne Stewart's favourite warm-up for The Open. Shower at the club, then back through the Ring toward a pint at <b>Riney's</b> and a dinner at <b>Sacre Coeur</b> that people will be talking about for years.</p>
+        <h3>Waterville, Riney's, and an evening dinner at Sacre Coeur</h3>
+        <p>A midday round at <b>Waterville Golf Links</b> &mdash; Payne Stewart's favourite warm-up for The Open. Shower at the club, then back through the Ring toward a pint at <b>Riney's</b> and a dinner at <b>Sacre Coeur</b> which is always a family favourite for us when we're home.</p>
         <ul class="schedule">
           <li><span class="t">12:00pm</span><span class="w">Tee time &middot; <b>Waterville Golf Links</b> (showers at the club)</span></li>
           <li><span class="t">Early eve</span><span class="w">Pints at <b>Riney's</b> &mdash; you'll get to meet Don Riney, owner of the pub and a good friend of my Mum and Dad</span></li>
@@ -342,17 +423,17 @@
       </div>
       <div>
         <h3>A day in Kerry &mdash; weather permitting.</h3>
-        <p>Depending on the weather, we will either take a boat trip across <b>Kenmare Bay</b> to the 11th best pub in Ireland. We'll stop in to see my Mum and Dad, and then we'll have dinner in Sneem. Should the weather not oblige, we'll do a tour of the <b>Ring of Kerry</b> to see the sights.</p>
+        <p>Weather depending, a boat will pick us up in Sneem and take us over to <b>Helen's Bar and Bed &amp; Breakfast</b>. Helen's Bar was recently voted the 11th best bar in Ireland per the Irish Times and we'll have pints and my wife's favourite smoked salmon sandwiches. The views are stunning too. We can also stop in to my Mum and Dad to their corner of Ireland.</p>
         <ul class="schedule">
-          <li><span class="t">Morning</span><span class="w">Boat across <b>Kenmare Bay</b> (weather permitting) &middot; otherwise the <b>Ring of Kerry</b></span></li>
-          <li><span class="t">Midday</span><span class="w">Stop in to see Mum and Dad</span></li>
+          <li><span class="t">Morning</span><span class="w">Boat from Sneem across <b>Kenmare Bay</b> to <b>Helen's Bar</b></span></li>
+          <li><span class="t">Midday</span><span class="w">Pints &amp; smoked salmon sandwiches &middot; stop in to Mum &amp; Dad</span></li>
           <li><span class="t">Dinner</span><span class="w">Back in Sneem</span></li>
           <li><span class="t">Overnight</span><span class="w"><b>Sneem Hotel</b></span></li>
         </ul>
         <div class="figures">
-          <div class="shot ph" style="background-image:url('Pictures/RingofKerry.jpeg')"></div>
-          <div class="shot ph" style="background-image:url('Pictures/RingofKerry2.jpeg')"></div>
-          <div class="shot ph" style="background-image:url('Pictures/Rosdohan.jpeg')"></div>
+          <div class="shot ph" style="background-image:url('Pictures/Rosdohan2.jpg')"></div>
+          <div class="shot ph" style="background-image:url('Pictures/Helens.jpg')"></div>
+          <div class="shot ph" style="background-image:url('Pictures/Rosdohan3.jpg')"></div>
         </div>
       </div>
     </div>
@@ -365,7 +446,7 @@
       </div>
       <div>
         <h3>Over to Ballybunion &mdash; my favourite golf course in Ireland</h3>
-        <p>We head up the coast for the first of two rounds at the <b>Ballybunion Old Course</b>. Tom Watson called it the course every golfer should play at least once; I think he was underselling it. We stay the night at the <b>Cliff House Hotel</b>, right above the beach.</p>
+        <p>We head up the coast for the first of two rounds at the <b>Ballybunion Old Course</b>. After Tom Watson won the iconic US Open in 1982 at Pebble Beach (famous chip-in on 17 to beat Jack Nicklaus), he was asked about his favourite courses. While he praised Pebble Beach, Watson was effusive in his praise for Ballybunion, saying &ldquo;after you play it, you think the game of golf was originated there. It is one of the best in the world.&rdquo; Tom Watson used to often visit Ballybunion in a rental car and stay at the <b>Cliff House</b>. We will follow in his footsteps. I think it is a great course, a lot of fun, and my favourite in Ireland.</p>
         <ul class="schedule">
           <li><span class="t">12:00pm</span><span class="w">Tee time &middot; <b>Ballybunion Old</b></span></li>
           <li><span class="t">Dinner</span><span class="w">At the hotel</span></li>
@@ -385,9 +466,9 @@
       </div>
       <div>
         <h3>As it's my favourite course, we're going to have two goes at it</h3>
-        <p>Early tee &mdash; 8:30am &mdash; for one last round at Ballybunion with the sun on the dunes. Coffee in the clubhouse, bags on the bus, and onward to flights home. That's the trip.</p>
+        <p>Midday tee &mdash; 12:00pm &mdash; for one last round at Ballybunion with the sun on the dunes. Coffee in the clubhouse, bags on the bus, and onward to flights home. That's the trip.</p>
         <ul class="schedule">
-          <li><span class="t">8:30am</span><span class="w">Tee time &middot; <b>Ballybunion Old</b></span></li>
+          <li><span class="t">12:00pm</span><span class="w">Tee time &middot; <b>Ballybunion Old</b></span></li>
           <li><span class="t">After</span><span class="w">Transfers, farewells, and the long way home</span></li>
         </ul>
       </div>
@@ -437,7 +518,7 @@
           <ul>
             <li>Par 71 &middot; 6,802 yards</li>
             <li>Designer: Tom Simpson (remodel)</li>
-            <li>Tees: <b>Thu 12:00pm &amp; Fri 8:30am</b></li>
+            <li>Tees: <b>Thu 12:00pm &amp; Fri 12:00pm</b></li>
           </ul>
         </div>
       </div>

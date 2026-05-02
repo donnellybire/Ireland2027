@@ -72,11 +72,7 @@
   .hero{
     position:relative;min-height:92vh;display:flex;align-items:center;
     color:#fff;overflow:hidden;isolation:isolate;
-    background:linear-gradient(135deg,#2f4a2a,#1a1008);
-  }
-  .hero .bg-video{
-    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
-    background:url('Pictures/Titlevideo-poster.jpg') center/cover no-repeat;
+    background:linear-gradient(180deg,rgba(42,31,20,.1) 0%,rgba(42,31,20,.45) 100%),url('Pictures/Parknasilla.jpg') center/cover no-repeat;
   }
   .hero .bg-overlay{
     position:absolute;inset:0;z-index:-1;
@@ -84,7 +80,7 @@
   }
   .hero .container{padding-top:80px;padding-bottom:80px;position:relative;z-index:2}
   .hero .eyebrow{color:#f5d68a;font-size:.82rem}
-  .hero h1{color:#fff}
+  .hero h1{color:#fff;font-style:italic;font-weight:500}
   .hero h1 em{color:#f5d68a;font-style:italic;font-family:'Playfair Display',Georgia,serif;font-weight:700}
   .hero p.lede{max-width:700px;color:#f5ecd4;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:1.35rem;line-height:1.55;letter-spacing:.005em}
   .hero .dates{margin-top:30px;display:inline-flex;gap:14px;align-items:center;padding:12px 22px;background:rgba(247,239,220,.08);border:1px solid rgba(245,214,138,.5);border-radius:2px;font-family:'Inter',sans-serif;font-size:.82rem;color:#f7efdc;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
@@ -297,7 +293,7 @@
 
   @media (prefers-reduced-motion:reduce){
     .hero .bg-video{display:none}
-    .hero{background:linear-gradient(180deg,rgba(42,31,20,.3) 0%,rgba(42,31,20,.75) 100%),url('Pictures/Titlevideo-poster.jpg') center/cover no-repeat,linear-gradient(135deg,#2f4a2a,#1a1008)}
+    .hero{background:linear-gradient(180deg,rgba(42,31,20,.3) 0%,rgba(42,31,20,.75) 100%),url('Pictures/Parknasilla.jpg') center/cover no-repeat,linear-gradient(135deg,#2f4a2a,#1a1008)}
     .scroll-cue .chev{animation:none}
   }
 
@@ -393,10 +389,6 @@
 
 <!-- HERO -->
 <header class="hero">
-  <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="Pictures/Titlevideo-poster.jpg">
-    <source src="Pictures/Titlevideo.webm" type="video/webm" />
-    <source src="Pictures/Titlevideo.mp4" type="video/mp4" />
-  </video>
   <div class="bg-overlay"></div>
   <div class="postmark">
     <div class="sm">Ireland</div>
@@ -405,7 +397,7 @@
   </div>
   <div class="container">
     <div class="eyebrow">Come visit Ireland &mdash; the way I like to spend my time at home</div>
-    <h1>Ireland.<br/><em>With Bobby.</em></h1>
+    <h1>Friends of Bobby Golf.<br/><em>Ireland.</em></h1>
     <p class="lede">The Guinness Storehouse in Dublin marks the start of our trip ahead of an evening in Dublin before beginning our golfing journey at Portmarnock Golf Club. We will then spend the rest of the week seeing Kerry and enjoying my favourite courses in my favourite part of Ireland.</p>
     <div class="dates">9 &ndash; 14 May 2027 &nbsp;&middot;&nbsp; Dublin &rarr; Kerry</div>
   </div>
@@ -675,49 +667,29 @@
     <div class="fin-hero">
       <div class="fin-card">
         <div class="cat">Golf</div>
-        <div class="big">$34,560</div>
-        <div class="per">4 rounds &middot; ~$540 per person, per round</div>
-        <ul>
-          <li><b>Portmarnock</b><span>$8,640</span></li>
-          <li><b>Waterville</b><span>$8,640</span></li>
-          <li><b>Ballybunion I</b><span>$8,640</span></li>
-          <li><b>Ballybunion II</b><span>$8,640</span></li>
-        </ul>
+        <div class="big">c $38,000</div>
+        <div class="per">4 rounds &middot; ~$600 per person, per round</div>
       </div>
 
       <div class="fin-card">
         <div class="cat">Travel &amp; Hotels</div>
-        <div class="big">$22,507</div>
+        <div class="big">c $23,000</div>
         <div class="per">5 nights across three hotels, plus the run west</div>
-        <ul>
-          <li><b>Grand Canal Hotel</b> &middot; 1 nt<span>$4,458</span></li>
-          <li><b>Bus &middot; Dublin to Kerry</b><span>$5,400</span></li>
-          <li><b>Sneem Hotel</b> &middot; 3 nts<span>$5,184</span></li>
-          <li><b>Cliff House Hotel</b> &middot; 2 nts<span>$7,465</span></li>
-        </ul>
       </div>
 
       <div class="fin-card">
         <div class="cat">Food &amp; Drink</div>
-        <div class="big">$19,008</div>
-        <div class="per">Dinners, the Storehouse, and a bit for the pubs</div>
-        <ul>
-          <li><b>Guinness Storehouse</b><span>$864</span></li>
-          <li><b>Elephant &amp; Castle</b><span>$1,728</span></li>
-          <li><b>Matt the Threshers</b><span>$1,728</span></li>
-          <li><b>Sacre Coeur</b><span>$1,728</span></li>
-          <li><b>Kerry day (lunch &amp; dinner)</b><span>$3,456</span></li>
-          <li><b>In-trip extras</b><span>$9,504</span></li>
-        </ul>
+        <div class="big">c $19k</div>
+        <div class="per">Guinness Storehouse and meals</div>
       </div>
     </div>
 
     <div class="fin-total">
       <div>
         <div class="label">Estimated Total</div>
-        <div class="sum">$76,075</div>
+        <div class="sum">c $80,000</div>
       </div>
-      <div class="pp">$4,755<br/><span style="font-style:normal;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:#f0e7d2;font-family:'Inter',sans-serif;font-weight:500">per person &middot; 16 pax</span></div>
+      <div class="pp">c $5,000<br/><span style="font-style:normal;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:#f0e7d2;font-family:'Inter',sans-serif;font-weight:500">per person &middot; 16 pax</span></div>
     </div>
 
     <div class="fin-total" style="background:var(--whiskey);margin-top:14px">
